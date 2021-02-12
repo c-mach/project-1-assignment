@@ -1,0 +1,17 @@
+footer {
+    @include footerFont;
+    background-color: $black;
+    width: 100%;
+    text-align: center;
+    padding: 4px;
+
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: $brightYellow;
+        }
+    }
+}

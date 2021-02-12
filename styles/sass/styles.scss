@@ -1,0 +1,636 @@
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/setup";
+@import "./partials/navigation";
+@import "./partials/form";
+@import "./partials/footer";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-weight: 400;
+}
+
+h1,
+li,
+a,
+ul,
+h2, 
+p,
+button,
+input{
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    border: none;
+}
+
+img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header.indexPage {
+    background-image: url("./assets/header-home.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+
+    .wrapper {
+        position: relative;
+    }
+
+    .fa-bars {
+        position: absolute;
+        right: 0;
+        top: 45px;
+    }
+
+    @include tabletMQ {
+        height: auto;
+    }
+}
+
+.blueCouch {
+    width: 55%;
+    position: relative;
+    bottom: -100px;
+}
+
+h1 {
+    @include h1Font;
+    position: relative;
+    left: 170px;
+    top: 50px;
+
+    @include tabletMQ {
+        font-size: 6.8vw;
+        left: 15%;
+    }
+
+    @include mobileMQ {
+        font-size: 8.8vw;
+        left: 5%;
+    }
+}
+
+// styling discovering section
+
+.discovering {
+    background: $white;
+    padding: 100px 0;
+
+    @include tabletMQ {
+        padding-top: 30px;
+    }
+
+    .wrapper {
+        margin-top: 100px;
+        display: flex;
+
+        @include portraitMQ {
+            flex-direction: column;
+
+        }
+    }
+}
+
+.textContent {
+    width: 80%;
+    padding-right: 100px;
+    
+    @include portraitMQ {
+        width: 100%;
+        margin-bottom: 80px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        @include h2Font;
+    }
+    p {
+        @include bodyFont;
+        margin: 10px 0;
+    }
+    button {
+        @include buttonFont;
+        @include buttonStyle;
+        margin-top: 10px;
+
+        @include portraitMQ {
+            align-self: center;
+        }
+    }
+}
+
+.photoContent img {
+    box-shadow: $brightYellow -20px 20px;
+
+    @include tabletMQ {
+        height: 60%;
+    }
+
+    @include portraitMQ {
+        margin: 0 auto;
+    }
+
+}
+
+// styling gallery section
+
+.gallery {
+    background-color: $ice;
+
+    .galleryContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 80px 0;
+
+        @include mobileMQ {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+    } 
+}
+
+// styling icon section
+
+.iconSection {
+    padding: 80px 0;
+}
+
+.iconContainer {
+    display: flex;
+    padding: 20px 0;
+
+    @include portraitMQ {
+        flex-direction: column;
+        padding: 0;
+        }
+    }
+
+.icon {
+    @include bodyFont;
+    display: flex;
+    width: 50%;
+
+    @include portraitMQ {
+        width: 100%;
+        padding-top: 20px;
+    }
+    h2 {
+        @include h2Font;
+    }
+    .iconFlex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        font-size: 2.5rem;
+        background-color: $brightYellow;
+        border-radius: 50%;
+        max-height: 50px;
+        min-width: 50px;
+    }
+}
+
+// styling group section
+
+.programSection {
+    background-color: $ice;
+
+    .programContainer {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 100px;
+        @include bodyFont;
+
+        @include portraitMQ {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 0;
+        }
+    }
+    h2 {
+        @include h2Font;
+    }
+    p {
+        margin: 10px 0;
+    }
+    button {
+        @include buttonFont;
+        @include buttonStyle;
+        margin-top: 20px;
+        padding: 10px 10px 2px 10px;;
+    }
+    .groupProgram {
+        padding-top: 80px;
+        margin-left: 0px;
+
+        @include portraitMQ {
+            padding: 0;
+            margin: auto;
+        }
+    }
+    .newLocations {
+        text-align: right;
+        padding-bottom: 50px;
+        margin-right: 0;
+
+        @include portraitMQ {
+            padding: 0;
+            margin: auto;
+        }
+
+        @include mobileMQ {
+            margin: 30px auto;
+        }
+    }
+    .imageLeft {
+        box-shadow: $brightYellow 20px 20px;
+        position: relative;
+        top: -20px;
+        right: 10px;
+
+        @include portraitMQ {
+            width: 80%;
+            margin: 0 auto;
+            top: 0;
+            margin-top: 80px;
+        }
+    }
+    .imageRight {
+        box-shadow: $brightYellow -20px 20px;
+        position: relative;
+        bottom: -20px;
+
+        @include portraitMQ {
+            width: 80%;
+            margin: 0 auto;
+            grid-row: 3 / 4;
+            bottom: 0;
+        }
+    }
+}
+
+// styling search by style section
+
+.styleContainer {
+    @include bodyFont;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 60px;
+
+    @include portraitMQ {
+        padding: 100px 0;
+    }
+
+    @include mobileMQ {
+        padding: 40px 0 60px 0;
+    }
+
+    h2 {
+        @include h2Font;
+    }
+
+    button {
+        @include buttonFont;
+        @include buttonStyle;
+        margin-top: 20px;
+    }
+}
+
+// ------ styling contact page ------- //
+
+// styling header
+
+.contactPage {
+    background: url("./assets/contact-image.jpg");
+    background-repeat: no-repeat;
+    height: 70vh;
+    background-size: cover;
+
+    .wrapper {
+        position: relative;
+    }
+
+    .fa-bars {
+        position: absolute;
+        right: 0;
+        top: 45px;
+    }
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.logo {
+    margin-top: 15px;
+}
+
+.logoText {
+    @include logoFont;
+    width: 20%;
+}
+
+.contactPage h1 {
+    left: 0;
+    top: 80px;
+    width: 100%;
+
+    @include mobileMQ {
+        width: 50%;
+        font-size: 5.5rem;
+    }
+}
+
+// styling contact section
+
+section.contact {
+    background-color: $ice;
+    // height: 50vh;
+}
+
+.contactContainer {
+    display: flex;
+
+    @include portraitMQ {
+        flex-direction: column;
+    }
+}
+
+.contactForm {
+    width: 60%;
+    position: relative;
+    top: -135px;
+
+    @include portraitMQ {
+        width: auto;
+    }
+}
+
+.contactText {
+    width: 40%;
+    @include bodyFont;
+    padding: 50px 0 50px 150px;
+
+    @include tabletMQ {
+        padding-left: 115px;
+    }
+
+    @include portraitMQ {
+        margin-top: -115px;
+        width: 100%;
+        padding: 50px 0 50px 0;
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+.contactText i {
+    margin-right: 17px;
+}
+
+.contactIcons {
+    color: $evergreen;
+}
+
+.contactIcons,
+.infoEmail {
+    margin-bottom: 15px;
+}
+
+
+// ------ styling blog page ------- //
+
+// styling header
+
+.blogPage {
+    background: url(./assets/blog-image.jpg);
+    background-repeat: no-repeat;
+    height: 70vh;
+    background-size: cover;
+
+    .navContainer {
+        overflow: hidden;
+    }
+
+    .wrapper {
+        position: relative;
+    }
+
+    .fa-bars {
+        position: absolute;
+        right: 0;
+        top: 45px;
+    }
+
+    h1 {
+        left: 0;
+        top: 150px;
+
+        @include mobileMQ {
+            font-size: 5.5rem;
+        }
+    }
+}
+
+// styling blog section
+
+.blogSection {
+    background-color: $ice;
+    width: 100%;
+    display: flex;
+
+    @include portraitMQ {
+        flex-direction: column;
+    }
+
+}
+
+.blogContainer {
+    @include bodyFont;
+    width: 80%;
+    margin-right: 200px;
+    position: relative;
+    top: -150px;
+    
+    @include tabletMQ {
+        margin-right: 15%;
+    }
+
+    h2 {
+        @include h2Font;
+    }
+
+    .leftImage {
+        box-shadow: $brightYellow 20px 20px;
+        position: relative;
+        top: 20px;
+        z-index: 1;
+    }
+    
+    .blogText {
+        background-color: $white;
+        padding: 80px 25px 20px 125px;
+        border-right: 7px solid #F8FB05;
+        border-bottom: 7px solid #F8FB05;
+        margin-right: -19px;
+
+        @include mobileMQ {
+            padding: 80px 25px 20px 25px;
+        }
+
+        p {
+            padding-bottom: 20px;
+        }
+    }
+}
+
+
+.mission {
+    @include bodyFont;
+    font-size: 1.8rem;
+    width: 30%;
+    height: 30%;
+    background-color: $brightYellow;
+    padding: 0 0 20px 20px;
+    margin-top: 100px;
+
+    @include portraitMQ {
+        display: flex;
+        width: 80%;
+        margin-top: -50px;
+    }
+
+    @include mobileMQ {
+        flex-direction: column;
+        margin-top: -80px;
+    }
+
+    .imageRight {
+        position: relative;
+        top: -15px;
+
+        @include portraitMQ {
+            margin-right: 20px;
+        }
+    }
+
+    h2 {
+        @include h2Font;
+        font-size: 2.5rem;
+    }
+
+    ul {
+        padding-left: 18px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+}
+
+// styling comment section
+
+.comments {
+    background-color: $ice;
+    margin-top: -80px;
+    @include bodyFont;
+    font-size: 1.8rem;
+
+    @include portraitMQ {
+        margin-top: 0px;
+        padding-top: 50px;
+    }
+
+    p {
+        padding-bottom: 10px;
+
+        span {
+            line-height: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+
+    h2 {
+        @include h2Font;
+        font-size: 2.5rem;
+    }
+
+    .user {
+        display: flex;
+
+        .displayPhoto {
+            max-width: 80px;
+            max-height: 80px;
+            width: 20%;
+            margin-right: 30px;
+            position: relative;
+            top: 10px;
+
+            @include portraitMQ {
+                width: 0;
+                margin-right: 0;
+            }
+        }
+
+        .userComment {
+            width: 50%;
+            padding-bottom: 50px;
+
+            @include portraitMQ {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// styling form section 
+
+.formSection {
+    background-color: $ice;  
+    .commentForm {
+        width: 60%;
+
+        @include portraitMQ {
+            width: 100%;
+        }
+    }
+
+    form {
+        padding: 0;
+        padding-bottom: 70px;
+    }
+
+    form,
+    input, 
+    textarea {
+        background-color: $ice;
+        box-shadow: none;
+    }
+}

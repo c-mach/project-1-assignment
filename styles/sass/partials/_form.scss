@@ -1,0 +1,67 @@
+form {
+    background-color: white;
+    @include bodyFont;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    box-shadow: $brightYellow 20px 20px;
+}
+
+input {
+    width: 100%;
+}
+
+input[type=text],
+input[type=email] {
+    border-bottom: 1px solid $evergreen;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+textarea {
+    border: 1px solid $evergreen;
+    height: 200px;
+    resize: none;
+    width: 100%;
+    padding: 30px 0 10px 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: black; 
+}
+
+.formName {
+    margin-right: 20px;
+}
+
+.formName,
+.formEmail {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+
+    @include mobileMQ {
+        width: 100%;
+    }
+}
+
+.formMessage {
+    margin-bottom: 20px;
+}
+.formMessage,
+.formSubmit {
+    width: 100%;
+}
+
+.formSubmit > button {
+    width: 100%;
+    @include buttonFont;
+    @include buttonStyle;
+}
+
+
+
