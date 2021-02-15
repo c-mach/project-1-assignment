@@ -8,14 +8,8 @@ const iconEl = document.querySelector('i');
 const ulEl = document.querySelector('ul');
 
 iconEl.addEventListener('click', function(){
-    if (iconEl) {
-        updateIcon(iconEl);
-    }
-    
+    updateIcon(iconEl);
     toggleNav(ulEl);
-    console.log(iconEl, '<- icon');
-    console.log(ulEl, '<- ul class?');
-
 });
 
 function updateIcon(iconElement) {
@@ -24,5 +18,19 @@ function updateIcon(iconElement) {
 }
 
 function toggleNav (toggle) {
-    toggle.classList.toggle('.toggleNav');
+    toggle.classList.toggle('toggleNav');
 }
+
+const formElement = document.querySelector('form.blogForm');
+formElement.addEventListener('submit', function(e){
+    e.preventDefault();
+    
+    const getName = document.getElementById('userName').value;
+    const getComment = document.getElementById('userMessage').value;
+    
+    if (getName && getComment) {
+        const createPhoto = document.createElement('div');
+        console.log(createPhoto);
+    }
+    
+});
