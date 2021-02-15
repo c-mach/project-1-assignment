@@ -29,8 +29,36 @@ formElement.addEventListener('submit', function(e){
     const getComment = document.getElementById('userMessage').value;
     
     if (getName && getComment) {
+
+        const postedComments = document.querySelector('.postedComments');
+        
+        const newUser = document.createElement('div');
+        newUser.classList.add('user');
+        postedComments.appendChild(newUser);
+
         const createPhoto = document.createElement('div');
-        console.log(createPhoto);
+        createPhoto.classList.add('displayPhoto');
+        createPhoto.innerHTML = `<img src="https://placedog.net/400/400" alt="A placeholder photo of a dog.">`;
+        newUser.appendChild(createPhoto);
+
+        const newComment = document.createElement('div');
+        newComment.classList.add('userComment');
+
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }
+        const todaysDate = new Date;
+        
+        newComment.innerHTML = `
+            <p><span class="commentDate">${todaysDate.toLocaleDateString('en-US', options)} by ${getName}</span></p>
+            <p>${getComment}</p>`;
+        
+        newUser.append(newComment);
+
+        formElement.reset();
     }
     
 });
